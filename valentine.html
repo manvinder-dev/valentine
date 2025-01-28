@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebf2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff3366;
+            animation: slideIn 3s ease-out;
+        }
+        h2 {
+            font-size: 2em;
+            color: #ff66b2;
+            margin-top: 20px;
+        }
+        .heart {
+            font-size: 6em;
+            color: red;
+            animation: beat 1.5s infinite;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes beat {
+            0% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.2);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+        .message-box {
+            display: inline-block;
+            background-color: #ffccf2;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 2px solid #ff66b2;
+            font-size: 1.5em;
+            color: #ff3366;
+            animation: pop 1s ease-out;
+        }
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #ff3366;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 15px;
+        }
+        .modal-header {
+            font-size: 2em;
+            color: #ff3366;
+        }
+        .modal-body {
+            font-size: 1.5em;
+            color: #ff66b2;
+            margin: 20px 0;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Will You Be My Valentine?</h1>
+        <div class="heart">❤️</div>
+        <h2>A special question, just for you!</h2>
+        <button class="button" onclick="showModal()">Yes! 💖</button>
+        <button class="button" onclick="showModal()">Absolutely Yes! 💕</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">You Did It!</div>
+            <div class="modal-body">Congratulations, you have subscribed to the world's best boyfriend!</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the modal
+        function showModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Close the modal if the user clicks anywhere outside the modal content
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
